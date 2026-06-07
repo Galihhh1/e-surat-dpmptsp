@@ -14,5 +14,12 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->report(function (\Throwable $e) {
+            header('Content-Type: text/plain; charset=utf-8');
+            echo "Original Boot Error: " . $e->getMessage() . "\n\n";
+            echo "Exception Class: " . get_class($e) . "\n\n";
+            echo "File: " . $e->getFile() . " on line " . $e->getLine() . "\n\n";
+            echo "Stack trace:\n" . $e->getTraceAsString();
+            exit(1);
+        });
     })->create();
