@@ -1,6 +1,17 @@
 {
   "version": 2,
   "framework": null,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "upgrade-insecure-requests"
+        }
+      ]
+    }
+  ],
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.8.0"

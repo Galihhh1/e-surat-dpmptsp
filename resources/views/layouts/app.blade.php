@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <title>{{ config('app.name', 'e-Surat DPMPTSP') }} | @isset($header){{ strip_tags($header) }}@else Dashboard @endisset</title>
         <meta name="description" content="Sistem Informasi Manajemen Surat DPMPTSP - Platform pengelolaan surat masuk, surat keluar, arsip, dan validasi surat secara digital.">
 
