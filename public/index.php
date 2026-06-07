@@ -3,6 +3,17 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
+// Force HTTPS for Vercel serverless (proxy terminates SSL)
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+    $_SERVER['SERVER_PORT'] = 443;
+}
+// Also force if running on Vercel (always HTTPS)
+if (isset($_SERVER['VERCEL']) || isset($_SERVER['HTTP_X_VERCEL_ID']) || (isset($_SERVER['SERVER_NAME']) && str_contains($_SERVER['SERVER_NAME'], 'vercel.app'))) {
+    $_SERVER['HTTPS'] = 'on';
+    $_SERVER['SERVER_PORT'] = 443;
+}
+
 define('LARAVEL_START', microtime(true));
 
 // Determine if the application is in maintenance mode...
