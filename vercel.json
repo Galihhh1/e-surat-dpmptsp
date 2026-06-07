@@ -32,6 +32,7 @@
     "APP_ENV": "production",
     "APP_DEBUG": "true",
     "APP_URL": "https://e-surat-dpmptsp-rbru.vercel.app",
+    "ASSET_URL": "https://e-surat-dpmptsp-rbru.vercel.app",
     "LOG_CHANNEL": "stderr",
     "VIEW_COMPILED_PATH": "/tmp",
     "CACHE_STORE": "array",
